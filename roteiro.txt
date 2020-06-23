@@ -24,8 +24,8 @@ Front End
    (✔) Objeto GRADE_VALIDATION
 
    () Função assíncrona getAllGrades, que:
-     (V) Traz todas notas da API
-     () Transforma dados para facilitar
+     (✔) Traz todas notas da API
+     (✔) Transforma dados para facilitar
        comparações, com valores lowercase
      () Inserir flag isDeleted
      () Verifica notas faltantes

@@ -27,7 +27,12 @@ async function getAllGrades() {
   const res = await axios.get(API_URL);
 
   const grades = res.data.grades.map((grade) => {
-    return { ...grade };
+    return {
+      ...grade,
+      studentLowerCase: grade.student.toLowerCase(),
+      subjectLowerCase: grade.subject.toLowerCase(),
+      typeLowerCase: grade.type.toLowerCase(),
+    };
   });
   return grades;
 }
