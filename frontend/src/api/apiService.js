@@ -49,7 +49,20 @@ async function getAllGrades() {
   grades.forEach((grade) => allTypes.add(grade.type));
   allTypes = Array.from(allTypes);
 
-  return allSubjects;
+  let allCombination = [];
+  allStudents.forEach((student) => {
+    allSubjects.forEach((subject) => {
+      allTypes.forEach((type) => {
+        allCombination.push({
+          student,
+          subject,
+          type,
+        });
+      });
+    });
+  });
+
+  return allCombination;
 }
 
 export { getAllGrades };
