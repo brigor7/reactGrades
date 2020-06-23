@@ -33,6 +33,7 @@ async function getAllGrades() {
       studentLowerCase: student.toLowerCase(),
       subjectLowerCase: subject.toLowerCase(),
       typeLowerCase: type.toLowerCase(),
+      isDeleted: false,
     };
   });
   return grades;
