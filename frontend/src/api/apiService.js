@@ -36,7 +36,20 @@ async function getAllGrades() {
       isDeleted: false,
     };
   });
-  return grades;
+  //Não traz alunos repetidos
+  let allStudents = new Set();
+  grades.forEach((grade) => allStudents.add(grade.student));
+  allStudents = Array.from(allStudents);
+
+  let allSubjects = new Set();
+  grades.forEach((grade) => allSubjects.add(grade.subject));
+  allSubjects = Array.from(allSubjects);
+
+  let allTypes = new Set();
+  grades.forEach((grade) => allTypes.add(grade.type));
+  allTypes = Array.from(allTypes);
+
+  return allSubjects;
 }
 
 export { getAllGrades };
