@@ -62,6 +62,29 @@ async function getAllGrades() {
     });
   });
 
+  allCombination.forEach(({ student, subject, type }) => {
+    const hasItem = grades.find((grade) => {
+      return (
+        grade.subject === subject &&
+        grade.student === student &&
+        grade.type === type
+      );
+    });
+    if (!hasItem) {
+      grades.push({
+        id: grades.lenght + 1,
+        student,
+        studentLowerCase: student.toLowerCase(),
+        subject,
+        subjectLowerCase: subject.toLowerCase(),
+        type,
+        typeLowerCase: type.toLowerCase(),
+        value: 0,
+        isDeleted: true,
+      });
+    }
+  });
+
   return allCombination;
 }
 
