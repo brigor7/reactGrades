@@ -27,11 +27,12 @@ async function getAllGrades() {
   const res = await axios.get(API_URL);
 
   const grades = res.data.grades.map((grade) => {
+    const { student, subject, type } = grade;
     return {
       ...grade,
-      studentLowerCase: grade.student.toLowerCase(),
-      subjectLowerCase: grade.subject.toLowerCase(),
-      typeLowerCase: grade.type.toLowerCase(),
+      studentLowerCase: student.toLowerCase(),
+      subjectLowerCase: subject.toLowerCase(),
+      typeLowerCase: type.toLowerCase(),
     };
   });
   return grades;
