@@ -28,12 +28,12 @@ Front End
      (✔) Transforma dados para facilitar
        comparações, com valores lowercase
      (✔) Inserir flag isDeleted
-     () Verifica notas faltantes
-     () Preenche as notas com os
+     (✔) Verifica notas faltantes
+     (✔) Preenche as notas com os
        registros faltantes com 0
        e flag de exclusão lógica 
        isDeleted = true
-     () Insere as notas faltantes no
+     (✔) Insere as notas faltantes no
        vetor de notas
      () Ordena por:
        1) type

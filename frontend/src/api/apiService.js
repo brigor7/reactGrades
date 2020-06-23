@@ -49,6 +49,7 @@ async function getAllGrades() {
   grades.forEach((grade) => allTypes.add(grade.type));
   allTypes = Array.from(allTypes);
 
+  let nextId = grades.lenght + 1;
   let allCombination = [];
   allStudents.forEach((student) => {
     allSubjects.forEach((subject) => {
@@ -72,7 +73,7 @@ async function getAllGrades() {
     });
     if (!hasItem) {
       grades.push({
-        id: grades.lenght + 1,
+        id: nextId++,
         student,
         studentLowerCase: student.toLowerCase(),
         subject,
@@ -83,6 +84,16 @@ async function getAllGrades() {
         isDeleted: true,
       });
     }
+  });
+
+  grades.sort((a, b) => {
+    a.typeLowerCase.localeCompare(b.typeLowerCase);
+  });
+  grades.sort((a, b) => {
+    a.subjectLowerCase.localeCompare(b.subjectLowerCase);
+  });
+  grades.sort((a, b) => {
+    a.studentLowerCase.localeCompare(b.studentLowerCase);
   });
 
   return allCombination;
