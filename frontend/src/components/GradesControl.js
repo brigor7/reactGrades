@@ -1,8 +1,41 @@
 import React, { Fragment } from 'react';
 
 export default function GradesControl({ grades, onDelete, onPersist }) {
-  console.log(onDelete);
-  console.log(onPersist);
+  /**Inicializando variaveis */
+  const tableGrades = [];
+  let currentStudent = grades[0].student;
+  let currentSubject = grades[0].subject;
+  let currentGrades = [];
+  let id = 1;
+
+  /**Percorrendo Grades e inserindo dados em tableGrade */
+  grades.forEach((grade) => {
+    if (grade.subject !== currentSubject) {
+      tableGrades.push({
+        id: id++,
+        student: currentStudent,
+        subject: currentSubject,
+        grades: currentGrades,
+      });
+      /**Reiniciando variaveis */
+      currentSubject = grade.subject;
+      currentGrades = [];
+    }
+    if (grade.student !== currentStudent) {
+      currentStudent = grade.student;
+    }
+    currentGrades.push(grade);
+  });
+
+  /**Após o loop, devemos inserir o último elemento */
+  tableGrades.push({
+    id: id++,
+    student: currentStudent,
+    subject: currentSubject,
+    grades: currentGrades,
+  });
+  console.log(tableGrades);
+
   return (
     <div className="container">
       <table className="highlight centered">
