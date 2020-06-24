@@ -63,7 +63,7 @@ Front End
      e retorna os dados de minValue e
      maxValue
 
-  () exporta as seguintes funções:
+  (✔) exporta as seguintes funções:
     getAllGrades, insertGrade,
     updateGrade, deleteGrade,
     getValidationFromGradeType
@@ -72,10 +72,10 @@ Front End
 App.js
 ------
 
-() Criar state para:
-   () allGrades []
-   () selectedGrade {}
-   () isModalOpen false
+(✔) Criar state para:
+   (✔) allGrades []
+   (✔) selectedGrade {}
+   (✔) isModalOpen false
    
 () Criar effect para:
    () Carga de dados da api []

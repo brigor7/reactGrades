@@ -93,13 +93,13 @@ async function getAllGrades() {
   });
 
   grades.sort((a, b) => {
-    a.typeLowerCase.localeCompare(b.typeLowerCase);
+    return a.typeLowerCase.localeCompare(b.typeLowerCase);
   });
   grades.sort((a, b) => {
-    a.subjectLowerCase.localeCompare(b.subjectLowerCase);
+    return a.subjectLowerCase.localeCompare(b.subjectLowerCase);
   });
   grades.sort((a, b) => {
-    a.studentLowerCase.localeCompare(b.studentLowerCase);
+    return a.studentLowerCase.localeCompare(b.studentLowerCase);
   });
 
   return grades;
@@ -122,7 +122,7 @@ async function deleteGrade(grade) {
 
 async function getValidationFromGradeType(gradeType) {
   const gradeValidation = GRADE_VALIDATION.find((item) => {
-    item.gradeType === gradeType;
+    return item.gradeType === gradeType;
   });
   return {
     minValue: gradeValidation.minValue,
