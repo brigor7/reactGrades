@@ -34,35 +34,42 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
     subject: currentSubject,
     grades: currentGrades,
   });
-  console.log(tableGrades);
 
   return (
     <div className="container">
-      <table className="highlight centered">
-        <thead>
-          <th>Aluno</th>
-          <th>Disciplina</th>
-          <th>Avaliação</th>
-          <th>Nota</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
-        </thead>
-        <tbody>
-          {grades.map(({ id, student, subject, type, value, isDeleted }) => {
-            return (
-              <tr key={id}>
-                <td>{student}</td>
-                <td>{subject}</td>
-                <td>{type}</td>
-                <td>{value}</td>
-                <td>&nbsp;</td>
-                <td>{isDeleted}</td>
+      {tableGrades.map((tableGrade) => {
+        return (
+          <table className="highlight centered" key={tableGrade.id}>
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Disciplina</th>
+                <th>Avaliação</th>
+                <th>Nota</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
               </tr>
-            );
-          })}
-        </tbody>
-        <tfoot></tfoot>
-      </table>
+            </thead>
+            <tbody>
+              {tableGrade.grades.map(
+                ({ id, student, subject, type, value, isDeleted }) => {
+                  return (
+                    <tr key={id}>
+                      <td>{student}</td>
+                      <td>{subject}</td>
+                      <td>{type}</td>
+                      <td>{value}</td>
+                      <td>&nbsp;</td>
+                      <td>{isDeleted}</td>
+                    </tr>
+                  );
+                }
+              )}
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        );
+      })}
     </div>
   );
 }
