@@ -129,4 +129,10 @@ async function getValidationFromGradeType(gradeType) {
     maxValue: gradeValidation.maxValue,
   };
 }
-export { getAllGrades };
+export {
+  getAllGrades,
+  insertGrade,
+  updateGrade,
+  deleteGrade,
+  getValidationFromGradeType,
+};
