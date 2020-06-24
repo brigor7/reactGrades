@@ -18,8 +18,12 @@ export default function App() {
     getGrades();
   }, []);
 
-  const handleDeleteGrade = () => {};
-  const handlePersistGrade = () => {};
+  const handleDeleteGrade = () => {
+    console.log('delete grade ok!');
+  };
+  const handlePersistGrade = () => {
+    console.log('persist grade ok!');
+  };
 
   return (
     <div className="container">
@@ -30,8 +34,8 @@ export default function App() {
       {allGrades.length > 0 && (
         <GradesControl
           grades={allGrades}
-          onDeleteGrade={handleDeleteGrade}
-          onPersistGrade={handlePersistGrade}
+          onDelete={handleDeleteGrade}
+          onPersist={handlePersistGrade}
         />
       )}
     </div>
