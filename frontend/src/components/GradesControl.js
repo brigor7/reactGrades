@@ -60,8 +60,8 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
                       <td>{type}</td>
                       <td>{isDeleted ? '-' : value}</td>
                       <td>
-                        <Action type="edit" />
-                        <Action type="delete" />
+                        <Action type={isDeleted ? 'add' : 'edit'} />
+                        <Action type={!isDeleted && 'delete'} />
                       </td>
                     </tr>
                   );
