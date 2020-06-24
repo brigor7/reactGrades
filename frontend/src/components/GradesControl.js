@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Action from './Action';
 
 export default function GradesControl({ grades, onDelete, onPersist }) {
@@ -37,8 +37,14 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
   });
 
   const handleActionClick = (id, type) => {
-    console.log(id);
-    console.log(type);
+    /**Trazendo o id do grade selecionado */
+    const grade = grades.find((grade) => grade.id === id);
+    if (type === 'delete') {
+      onDelete(grade);
+    }
+    if (type === 'edit' || type === 'add') {
+      onPersist(id);
+    }
   };
 
   return (

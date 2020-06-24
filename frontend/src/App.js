@@ -18,11 +18,25 @@ export default function App() {
     getGrades();
   }, []);
 
-  const handleDeleteGrade = () => {
-    console.log('delete grade ok!');
+  const handleDeleteGrade = async (gradeDeleted) => {
+    const isDeleted = await api.deleteGrade(gradeDeleted);
+    if (isDeleted) {
+      const deleteGradeIndex = allGrades.findIndex(
+        (grade) => grade.id === gradeDeleted.id
+      );
+
+      /**Realiza a copia de objeto para um array em branco */
+      const newGrades = Object.assign([], allGrades);
+
+      /**Altera os valores de isDeleted e Value */
+      newGrades[deleteGradeIndex].isDeleted = true;
+      newGrades[deleteGradeIndex].value = 0;
+
+      setAllGrades(newGrades);
+    }
   };
-  const handlePersistGrade = () => {
-    console.log('persist grade ok!');
+  const handlePersistGrade = (id) => {
+    console.log(`persist: ${id}`);
   };
 
   return (

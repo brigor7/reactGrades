@@ -8,7 +8,7 @@ export default function Action({ id, type, onActionClick }) {
     <span
       key={id}
       id={id}
-      class="material-icons"
+      className="material-icons"
       onClick={handleClick}
       style={{ cursor: 'pointer' }}
     >
