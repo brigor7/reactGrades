@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Action from './Action';
 
 export default function GradesControl({ grades, onDelete, onPersist }) {
   /**Inicializando variaveis */
@@ -58,7 +59,10 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
                       <td>{subject}</td>
                       <td>{type}</td>
                       <td>{isDeleted ? '-' : value}</td>
-                      <td></td>
+                      <td>
+                        <Action type="edit" />
+                        <Action type="delete" />
+                      </td>
                     </tr>
                   );
                 }
