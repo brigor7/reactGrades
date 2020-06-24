@@ -35,29 +35,29 @@ Front End
        isDeleted = true
      (✔) Insere as notas faltantes no
        vetor de notas
-     () Ordena por:
+     (✔) Ordena por:
        1) type
        2) subject
        3) student
 
-     () Por fim, retorna as notas
+     (✔) Por fim, retorna as notas
 
-   () Função assíncrona insertGrade, que
+   (✔) Função assíncrona insertGrade, que
      recebe uma nota, grava na API com
      axios.post e retorna os dados
      recebidos da API.
 
-   () Função assíncrona updateGrade, que
+   (✔) Função assíncrona updateGrade, que
      recebe uma nota, grava na API com
      axios.put e retorna os dados
      recebidos da API.
 
-   () Função assíncrona deleteGrade, que
+   (✔) Função assíncrona deleteGrade, que
      recebe uma nota, grava na API com
      axios.post e retorna os dados
      recebidos da API.
 
-   () Função getValidationFromGradeType,
+   (✔) Função getValidationFromGradeType,
      que recebe um tipo de nota, busca
      em GRADE_VALIDATION com array.find 
      e retorna os dados de minValue e

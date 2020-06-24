@@ -7,19 +7,19 @@ const GRADE_VALIDATION = [
     id: 1,
     gradeType: 'Exercícios',
     minValue: 0,
-    maxValux: 10,
+    maxValue: 10,
   },
   {
     id: 2,
     gradeType: 'Trabalho Prático',
     minValue: 0,
-    maxValux: 40,
+    maxValue: 40,
   },
   {
     id: 3,
     gradeType: 'Desafio',
     minValue: 0,
-    maxValux: 50,
+    maxValue: 50,
   },
 ];
 
@@ -118,5 +118,15 @@ async function updateGrade(grade) {
 async function deleteGrade(grade) {
   const response = await axios.delete(`${API_URL}/${grade.id}`);
   return response.data;
+}
+
+async function getValidationFromGradeType(gradeType) {
+  const gradeValidation = GRADE_VALIDATION.find((item) => {
+    item.gradeType === gradeType;
+  });
+  return {
+    minValue: gradeValidation.minValue,
+    maxValue: gradeValidation.maxValue,
+  };
 }
 export { getAllGrades };
