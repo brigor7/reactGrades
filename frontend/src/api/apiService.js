@@ -49,7 +49,13 @@ async function getAllGrades() {
   grades.forEach((grade) => allTypes.add(grade.type));
   allTypes = Array.from(allTypes);
 
-  let nextId = grades.lenght + 1;
+  let maxId = -1;
+  grades.forEach(({ id }) => {
+    if (id > maxId) {
+      maxId = id;
+    }
+  });
+  let nextId = maxId + 1;
   let allCombination = [];
   allStudents.forEach((student) => {
     allSubjects.forEach((subject) => {
@@ -96,7 +102,21 @@ async function getAllGrades() {
     a.studentLowerCase.localeCompare(b.studentLowerCase);
   });
 
-  return allCombination;
+  return grades;
 }
 
+async function insertGrade(grade) {
+  const response = await axios.post(API_URL, grade);
+  return response.data.id;
+}
+
+async function updateGrade(grade) {
+  const response = await axios.put(API_URL, grade);
+  return response.data;
+}
+
+async function deleteGrade(grade) {
+  const response = await axios.delete(`${API_URL}/${grade.id}`);
+  return response.data;
+}
 export { getAllGrades };
