@@ -36,6 +36,11 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
     grades: currentGrades,
   });
 
+  const handleActionClick = (id, type) => {
+    console.log(id);
+    console.log(type);
+  };
+
   return (
     <div className="container">
       {tableGrades.map(({ id, grades }) => {
@@ -60,8 +65,18 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
                       <td>{type}</td>
                       <td>{isDeleted ? '-' : value}</td>
                       <td>
-                        <Action type={isDeleted ? 'add' : 'edit'} />
-                        <Action type={!isDeleted && 'delete'} />
+                        <Action
+                          onActionClick={handleActionClick}
+                          id={id}
+                          type={isDeleted ? 'add' : 'edit'}
+                        />
+                        {!isDeleted && (
+                          <Action
+                            onActionClick={handleActionClick}
+                            id={id}
+                            type="delete"
+                          />
+                        )}
                       </td>
                     </tr>
                   );
