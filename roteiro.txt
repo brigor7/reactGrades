@@ -92,12 +92,12 @@ Componentes:
      'allGrades' estiver com 
      length === 0
 
-() GradesControl com as seguintes props:
-   () grades => allGrades
-   () onDeleteGrade => handleDeleteGrade em App.js
-   () onPersistGrade => handlePersistGrade em App.js
+(✔) GradesControl com as seguintes props:
+   (✔) grades => allGrades
+   (✔) onDeleteGrade => handleDeleteGrade em App.js
+   (✔) onPersistGrade => handlePersistGrade em App.js
 
-   () Visível somente se 'allGrades' estiver
+   (✔) Visível somente se 'allGrades' estiver
      com length > 0
 
    () Criar array tableGrades, que será composta
