@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as api from './api/apiService';
 
 export default function App() {
   const [allGrades, setAllGrades] = useState([]);
   const [selectedGrade, setSelectedGrade] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    api.getAllGrades().then((grades) => {
+      setTimeout(() => {
+        setAllGrades(grades);
+      }, 1000);
+    });
+  }, []);
 
   return (
     <div className="container">
