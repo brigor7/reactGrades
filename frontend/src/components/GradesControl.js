@@ -16,15 +16,15 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
           <th>&nbsp;</th>
         </thead>
         <tbody>
-          {grades.map((grade) => {
+          {grades.map(({ id, student, subject, type, value, isDeleted }) => {
             return (
-              <tr key={grade.id}>
-                <td>{grade.student}</td>
-                <td>{grade.subject}</td>
-                <td>{grade.type}</td>
-                <td>{grade.value}</td>
+              <tr key={id}>
+                <td>{student}</td>
+                <td>{subject}</td>
+                <td>{type}</td>
+                <td>{value}</td>
                 <td>&nbsp;</td>
-                <td>{grade.isDeleted}</td>
+                <td>{isDeleted}</td>
               </tr>
             );
           })}
