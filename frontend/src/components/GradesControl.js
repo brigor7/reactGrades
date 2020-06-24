@@ -4,9 +4,8 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
   console.log(onDelete);
   console.log(onPersist);
   return (
-    <div>
-      <p className="center">Notas disponiveis</p>
-      <table className="striped">
+    <div className="container">
+      <table className="highlight centered">
         <thead>
           <th>Aluno</th>
           <th>Disciplina</th>
