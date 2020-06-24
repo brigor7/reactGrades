@@ -77,7 +77,7 @@ App.js
    (✔) selectedGrade {}
    (✔) isModalOpen false
    
-() Criar effect para:
+(✔) Criar effect para:
    () Carga de dados da api []
 
 (✔) Criar título "Controle de notas"
@@ -86,9 +86,9 @@ App.js
 Componentes:
 ------------
 
-() Spinner a partir do Materialize
-   () Testar em App.js
-   () Deve ser exibido somente enquanto
+(✔) Spinner a partir do Materialize
+   (✔) Testar em App.js
+   (✔) Deve ser exibido somente enquanto
      'allGrades' estiver com 
      length === 0
 
