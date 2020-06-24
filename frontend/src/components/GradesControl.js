@@ -44,6 +44,10 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
   return (
     <div className="container">
       {tableGrades.map(({ id, grades }) => {
+        const finalGrade = grades.reduce((acc, curr) => {
+          return acc + curr.value;
+        }, 0);
+
         return (
           <table className="bordered striped centered" key={id}>
             <thead>
@@ -83,7 +87,15 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
                 }
               )}
             </tbody>
-            <tfoot></tfoot>
+            <tfoot>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td style={{ textAlign: 'right' }}>Nota</td>
+                <td>{finalGrade}</td>
+              </tr>
+            </tfoot>
           </table>
         );
       })}
