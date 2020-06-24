@@ -7,11 +7,13 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    api.getAllGrades().then((grades) => {
+    const getGrades = async () => {
+      const grades = await api.getAllGrades();
       setTimeout(() => {
         setAllGrades(grades);
       }, 1000);
-    });
+    };
+    getGrades();
   }, []);
 
   return (
