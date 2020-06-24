@@ -51,7 +51,11 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
           finalGrade > 70 ? STYLES.goodGrades : STYLES.badGrades;
 
         return (
-          <table className="bordered striped centered" key={id}>
+          <table
+            style={STYLES.table}
+            className="bordered striped centered"
+            key={id}
+          >
             <thead>
               <tr>
                 <th style={{ width: '20%' }}>Aluno</th>
@@ -114,5 +118,9 @@ const STYLES = {
   badGrades: {
     fontWeight: 'bold',
     color: 'red',
+  },
+  table: {
+    margin: '20px',
+    padding: '10px',
   },
 };
