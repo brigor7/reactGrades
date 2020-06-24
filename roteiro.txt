@@ -80,7 +80,7 @@ App.js
 () Criar effect para:
    () Carga de dados da api []
 
-() Criar título "Controle de notas"
+(✔) Criar título "Controle de notas"
 
 
 Componentes:

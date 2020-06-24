@@ -8,7 +8,10 @@ export default function App() {
 
   return (
     <div className="container">
-      <h2>React Grades</h2>
+      <h2 className="center">React Grades</h2>
+      <h3 className="center">Controle de notas</h3>
+      {allGrades.length > 0 && <p>Notas disponiveis</p>}
+      {allGrades.length === 0 && <p>Carregando...</p>}
     </div>
   );
 }
