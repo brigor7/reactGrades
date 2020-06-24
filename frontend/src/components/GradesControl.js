@@ -47,6 +47,8 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
         const finalGrade = grades.reduce((acc, curr) => {
           return acc + curr.value;
         }, 0);
+        const gradeStyle =
+          finalGrade > 70 ? STYLES.goodGrades : STYLES.badGrades;
 
         return (
           <table className="bordered striped centered" key={id}>
@@ -93,7 +95,9 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td style={{ textAlign: 'right' }}>Nota</td>
-                <td>{finalGrade}</td>
+                <td>
+                  <span style={gradeStyle}>{finalGrade}</span>
+                </td>
               </tr>
             </tfoot>
           </table>
@@ -102,3 +106,13 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
     </div>
   );
 }
+const STYLES = {
+  goodGrades: {
+    fontWeight: 'bold',
+    color: 'green',
+  },
+  badGrades: {
+    fontWeight: 'bold',
+    color: 'red',
+  },
+};
