@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as api from './api/apiService';
 import Spinner from './components/Spinner';
 import GradesControl from './components/GradesControl';
+import ModalGrade from './components/ModalGrade';
 
 export default function App() {
   const [allGrades, setAllGrades] = useState([]);
@@ -35,10 +36,14 @@ export default function App() {
       setAllGrades(newGrades);
     }
   };
+
   const handlePersistGrade = (grade) => {
     setSelectedGrade(grade);
     setIsModalOpen(true);
   };
+
+  const handPersistData = () => {};
+  const handleClose = () => {};
 
   return (
     <div className="container">
@@ -51,6 +56,13 @@ export default function App() {
           grades={allGrades}
           onDelete={handleDeleteGrade}
           onPersist={handlePersistGrade}
+        />
+      )}
+      {isModalOpen && (
+        <ModalGrade
+          onSave={handPersistData}
+          onClose={handleClose}
+          selectedGrade={selectedGrade}
         />
       )}
     </div>
