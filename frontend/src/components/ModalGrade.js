@@ -112,7 +112,7 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
               <i className="material-icons">save</i>
               <span>&nbsp;Salvar</span>
             </button>
-            <span>{errorMessage}</span>
+            <span style={styles.errorMessage}>{errorMessage}</span>
           </div>
         </form>
       </Modal>
@@ -129,8 +129,9 @@ const styles = {
     marginBottom: '40px',
   },
 
-  flexStart: {
-    justifyContent: 'flex-start',
+  errorMessage: {
+    color: 'red',
+    fontWeight: 'bold',
   },
 
   title: {
