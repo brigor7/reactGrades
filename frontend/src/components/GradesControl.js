@@ -43,7 +43,7 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
       onDelete(grade);
     }
     if (type === 'edit' || type === 'add') {
-      onPersist(id);
+      onPersist(grade);
     }
   };
 

@@ -35,8 +35,9 @@ export default function App() {
       setAllGrades(newGrades);
     }
   };
-  const handlePersistGrade = (id) => {
-    console.log(`persist: ${id}`);
+  const handlePersistGrade = (grade) => {
+    setSelectedGrade(grade);
+    setIsModalOpen(true);
   };
 
   return (
