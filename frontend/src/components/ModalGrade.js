@@ -41,9 +41,38 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
     }
   };
 
+  const handleFormSubmit = () => {};
+
   return (
     <div>
-      <Modal isOpen={true} />
+      <Modal isOpen={true}>
+        <form onSubmit={handleFormSubmit}>
+          <div className="input-field">
+            <input id="inputStudent" type="text" value={student} readOnly />
+            <label className="active" htmlFor="inputStudent">
+              Nome do Aluno:
+            </label>
+          </div>
+          <div className="input-field">
+            <input id="inputSubject" type="text" value={subject} readOnly />
+            <label className="active" htmlFor="inputSubject">
+              Assunto:
+            </label>
+          </div>
+          <div className="input-field">
+            <input id="inputType" type="text" value={type} readOnly />
+            <label className="active" htmlFor="inputType">
+              Tipo:
+            </label>
+          </div>
+          <div className="input-field">
+            <input id="inputNote" type="text" value={value} />
+            <label className="active" htmlFor="inputNote">
+              Nota do Aluno:
+            </label>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }
