@@ -42,7 +42,7 @@ export default function App() {
     setIsModalOpen(true);
   };
 
-  const handPersistData = (formData) => {
+  const handPersistData = async (formData) => {
     const { id, newValue } = formData;
     /**Atribuo uma nova cópia de allGrades para newGrades */
     const newGrades = Object.assign([], allGrades);
@@ -51,6 +51,11 @@ export default function App() {
       return grade.id === id;
     });
     gradetoPersist.value = newValue;
+    /**Verificando se registro foi excluido ou editado */
+    if (gradetoPersist.isDeleted) {
+      gradetoPersist.isDeleted = false;
+      await api.insertGrade(gradetoPersist);
+    }
     console.log(gradetoPersist);
     setIsModalOpen(false);
   };
