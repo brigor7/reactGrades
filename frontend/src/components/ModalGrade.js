@@ -6,7 +6,7 @@ import * as api from '../api/apiService';
 Modal.setAppElement('#root');
 
 export default function ModalGrade({ onSave, onClose, selectedGrade }) {
-  const { id, student, subject, value, type } = selectedGrade;
+  const { student, subject, value, type } = selectedGrade;
   const [gradeValue, setGradeValue] = useState(value);
   const [gradeValidation, setGradeValidation] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
@@ -44,11 +44,9 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
     }
   };
 
-  const handleClose = () => {
+  const handleModalClose = () => {
     onClose(null);
   };
-
-  const handleSave = () => {};
 
   const handleFormSubmit = () => {};
   const handleGradeChange = (event) => {
@@ -63,7 +61,7 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
           <span style={styles.title}>Manutenção de notas</span>
           <button
             className="waves-effect waves-lights btn red dark-4"
-            onClick={handleClose}
+            onClick={handleModalClose}
           >
             <i className="material-icons">close</i>
           </button>
@@ -107,7 +105,6 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
               style={styles.flexButtonSave}
               className="waves-effect waves-lights btn"
               disabled={errorMessage.trim() !== ''}
-              onClick={handleSave}
             >
               <i className="material-icons">save</i>
               <span>&nbsp;Salvar</span>
