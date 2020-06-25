@@ -6,14 +6,15 @@ import * as api from '../api/apiService';
 Modal.setAppElement('#root');
 
 export default function ModalGrade({ onSave, onClose, selectedGrade }) {
-  const [gradeValue, setGradeValue] = useState(selectedGrade.value);
+  const { id, student, subject, value, type } = selectedGrade;
+  const [gradeValue, setGradeValue] = useState(value);
   const [gradeValidation, setGradeValidation] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    const validation = api.getValidationFromGradeType(selectedGrade.type);
+    const validation = api.getValidationFromGradeType(type);
     setGradeValidation(validation);
-  }, [selectedGrade.type]);
+  }, [type]);
 
   useEffect(() => {
     const { minValue, maxValue } = gradeValidation;
