@@ -12,8 +12,11 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    const validation = api.getValidationFromGradeType(type);
-    setGradeValidation(validation);
+    const getValidation = async () => {
+      const validation = await api.getValidationFromGradeType(type);
+      setGradeValidation(validation);
+    };
+    getValidation();
   }, [type]);
 
   useEffect(() => {
