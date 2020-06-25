@@ -42,7 +42,10 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
   };
 
   const handleFormSubmit = () => {};
-  const handleGradeChange = () => {};
+  const handleGradeChange = (event) => {
+    /**O sinal de + garante que o objeto será passsado como string */
+    setGradeValue(+event.target.value);
+  };
 
   return (
     <div>
