@@ -102,15 +102,17 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
               Nota:
             </label>
           </div>
-          <div>
+          <div style={styles.flexRow}>
             <button
               style={styles.flexButtonSave}
               className="waves-effect waves-lights btn"
+              disabled={errorMessage.trim() !== ''}
               onClick={handleSave}
             >
-              <i class="material-icons">save</i>
+              <i className="material-icons">save</i>
               <span>&nbsp;Salvar</span>
             </button>
+            <span>{errorMessage}</span>
           </div>
         </form>
       </Modal>
@@ -125,6 +127,10 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '40px',
+  },
+
+  flexStart: {
+    justifyContent: 'flex-start',
   },
 
   title: {
