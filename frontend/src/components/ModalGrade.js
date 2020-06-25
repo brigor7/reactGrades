@@ -48,6 +48,8 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
     onClose(null);
   };
 
+  const handleSave = () => {};
+
   const handleFormSubmit = () => {};
   const handleGradeChange = (event) => {
     /**O sinal de + garante que o objeto será passsado como string */
@@ -63,7 +65,7 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
             className="waves-effect waves-lights btn red dark-4"
             onClick={handleClose}
           >
-            X
+            <i className="material-icons">close</i>
           </button>
         </div>
         <form onSubmit={handleFormSubmit}>
@@ -100,6 +102,16 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
               Nota:
             </label>
           </div>
+          <div>
+            <button
+              style={styles.flexButtonSave}
+              className="waves-effect waves-lights btn"
+              onClick={handleSave}
+            >
+              <i class="material-icons">save</i>
+              <span>&nbsp;Salvar</span>
+            </button>
+          </div>
         </form>
       </Modal>
     </div>
@@ -118,5 +130,13 @@ const styles = {
   title: {
     fontSize: '1.3rem',
     fontWeight: 'bold',
+  },
+
+  flexButtonSave: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '10px',
   },
 };
