@@ -6,7 +6,7 @@ import * as api from '../api/apiService';
 Modal.setAppElement('#root');
 
 export default function ModalGrade({ onSave, onClose, selectedGrade }) {
-  const { student, subject, value, type } = selectedGrade;
+  const { id, student, subject, value, type } = selectedGrade;
   const [gradeValue, setGradeValue] = useState(value);
   const [gradeValidation, setGradeValidation] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
@@ -48,7 +48,16 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
     onClose(null);
   };
 
-  const handleFormSubmit = () => {};
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      id,
+      newValue: gradeValue,
+    };
+    onSave(formData);
+  };
+
   const handleGradeChange = (event) => {
     /**O sinal de + garante que o objeto será passsado como string */
     setGradeValue(+event.target.value);

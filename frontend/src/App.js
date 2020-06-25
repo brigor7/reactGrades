@@ -42,7 +42,19 @@ export default function App() {
     setIsModalOpen(true);
   };
 
-  const handPersistData = () => {};
+  const handPersistData = (formData) => {
+    const { id, newValue } = formData;
+    /**Atribuo uma nova cópia de allGrades para newGrades */
+    const newGrades = Object.assign([], allGrades);
+    /**Busco o elemento através do ir */
+    const gradetoPersist = newGrades.find((grade) => {
+      return grade.id === id;
+    });
+    gradetoPersist.value = newValue;
+    console.log(gradetoPersist);
+    setIsModalOpen(false);
+  };
+
   const handleClose = () => {
     setIsModalOpen(false);
   };
