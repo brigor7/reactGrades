@@ -55,6 +55,8 @@ export default function App() {
     if (gradetoPersist.isDeleted) {
       gradetoPersist.isDeleted = false;
       await api.insertGrade(gradetoPersist);
+    } else {
+      await api.updateGrade(gradetoPersist);
     }
     console.log(gradetoPersist);
     setIsModalOpen(false);
