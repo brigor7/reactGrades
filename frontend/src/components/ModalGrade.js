@@ -27,6 +27,19 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
     setErrorMessage('');
   }, [gradeValue, gradeValidation]);
 
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      onClose(null);
+    }
+  };
+
   return (
     <div>
       <Modal isOpen={true} />

@@ -43,7 +43,9 @@ export default function App() {
   };
 
   const handPersistData = () => {};
-  const handleClose = () => {};
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="container">
