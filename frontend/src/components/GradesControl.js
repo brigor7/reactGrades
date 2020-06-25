@@ -41,10 +41,9 @@ export default function GradesControl({ grades, onDelete, onPersist }) {
     const grade = grades.find((grade) => grade.id === id);
     if (type === 'delete') {
       onDelete(grade);
+      return;
     }
-    if (type === 'edit' || type === 'add') {
-      onPersist(grade);
-    }
+    onPersist(grade);
   };
 
   return (
