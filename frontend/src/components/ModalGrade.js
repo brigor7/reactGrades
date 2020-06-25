@@ -42,6 +42,7 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
   };
 
   const handleFormSubmit = () => {};
+  const handleGradeChange = () => {};
 
   return (
     <div>
@@ -56,19 +57,28 @@ export default function ModalGrade({ onSave, onClose, selectedGrade }) {
           <div className="input-field">
             <input id="inputSubject" type="text" value={subject} readOnly />
             <label className="active" htmlFor="inputSubject">
-              Assunto:
+              Disciplina:
             </label>
           </div>
           <div className="input-field">
             <input id="inputType" type="text" value={type} readOnly />
             <label className="active" htmlFor="inputType">
-              Tipo:
+              Tipo de avaliação:
             </label>
           </div>
           <div className="input-field">
-            <input id="inputNote" type="text" value={value} />
-            <label className="active" htmlFor="inputNote">
-              Nota do Aluno:
+            <input
+              id="inputGrade"
+              type="number"
+              min={gradeValidation.minValue}
+              max={gradeValidation.maxValue}
+              step="1"
+              autoFocus
+              value={gradeValue}
+              onChange={handleGradeChange}
+            />
+            <label className="active" htmlFor="inputGrade">
+              Nota:
             </label>
           </div>
         </form>

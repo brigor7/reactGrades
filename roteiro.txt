@@ -100,46 +100,46 @@ Componentes:
    (✔) Visível somente se 'allGrades' estiver
      com length > 0
 
-   () Criar array tableGrades, que será composta
+   (✔) Criar array tableGrades, que será composta
      de diversos arrays agrupados por nome e
      disciplina.
-   () Para isso, percorremos grades com forEach
+   (✔) Para isso, percorremos grades com forEach
      e controlamos a mudança de subject e student
 
-   () Montamos a tela percorrendo tableGrades,
+   (✔) Montamos a tela percorrendo tableGrades,
      gerando n tabelas
 
-   () Isolamos as ações de inserção, edição e 
+   (✔) Isolamos as ações de inserção, edição e 
      exclusão no componente Action
 
-   () Funções importantes: handlePersist e
+   (✔) Funções importantes: handlePersist e
      handleDelete, que invocarão as props
      correspondentes que chegaram de App.js,
      enviando a nota a ser persistida/excluída
 
-   () Chavear a exibição de ícones de inserção,
+   (✔) Chavear a exibição de ícones de inserção,
      edição e exclusão
 
-() ModalGrade
-   () Visível apenas se "isModalOpen" for true
-   () Props:
-     () onSave => handlePersistData
-     () onClose => handleCloseModal
-     () selectedGrade => selectedGrade  
+(✔) ModalGrade
+   (✔) Visível apenas se "isModalOpen" for true
+   (✔) Props:
+     (✔) onSave => handlePersistData
+     (✔) onClose => handleCloseModal
+     (✔) selectedGrade => selectedGrade  
 
-     () State:
-       () gradeValue
-       () gradeValidation
-       () errorMessage
+     (✔) State:
+       (✔) gradeValue
+       (✔) gradeValidation
+       (✔) errorMessage
 
-     () Effects:
-       () Obter validação de apiService [type]
-       () Validação da nota [gradeValue, gradeValidation]
-       () EventListener de keydown, para monitorar a tecla "Esc",
+     (✔) Effects:
+       (✔) Obter validação de apiService [type]
+       (✔) Validação da nota [gradeValue, gradeValidation]
+       (✔) EventListener de keydown, para monitorar a tecla "Esc",
          que deve cancelar a persistência e fechar a modal
 
-     () Montar modal a partir da biblioteca react-modal
-       () Mostrar nome do aluno, disciplina e tipo de
+     (✔) Montar modal a partir da biblioteca react-modal
+       (✔) Mostrar nome do aluno, disciplina e tipo de
          avaliação com inputs 'readOnly'
        () Tornar o botão "Salvar" desabilitado caso a nota
          esteja em um intervalo diferente do minValue e
